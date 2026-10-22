@@ -1,0 +1,36 @@
+{
+  "profiles": {
+    "personal": {
+      "github_owner": "YOUR_GITHUB_USER",
+      "repos_root": "~/repos/personal",
+      "ask_subdirectory": false
+    },
+    "organization": {
+      "github_owner": "YOUR_GITHUB_ORGANIZATION",
+      "repos_root": "~/repos/organization",
+      "ask_subdirectory": true
+    }
+  },
+  "workers": {
+    "yolo": false,
+    "worktrees_root": "~/.local/share/factoryfq/worktrees",
+    "types": {
+      "implementer": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "high"
+      },
+      "reviewer": {
+        "model": "gpt-6-astra",
+        "reasoning_effort": "high"
+      }
+    },
+    "herdr": {
+      "layout": "agent"
+    }
+  },
+  "context": {
+    "github_owners": {
+      "YOUR_GITHUB_ORGANIZATION": "linear"
+    }
+  }
+}
