@@ -1,39 +1,8 @@
-# Implement a Linear delivery
+# Update a Linear delivery checkpoint
 
-Use this reference only for a plan stored in Linear. The shared skill defines
-guided and autonomous behavior; storage does not change their review boundaries.
-The plan document owns intent and design. Its delivery issue records validated,
-published progress. Provisional local work stays in the conversation, with no
-local mirror or second tracker.
-
-## Read and select
-
-Reuse relevant context and the verified repo/project association. Use
-[project-context](../../project-context/SKILL.md) only if that source or association
-needs resolving; recheck when the repo, destination or relevant evidence changes.
-Read the project's context document if its contents are not already available
-in this session; reading an issue and its plan does not substitute for it.
-Follow the
-[Linear plan format](../../project-plan/references/linear-plans.md) to locate the
-selected plan and issue. An explicit issue ID or URL is a useful entry point:
-read that issue and its linked plan, and verify project, plan key, delivery ID,
-and repository against the current checkout. A shared project does not authorize
-changes in its other repositories.
-
-Read the issue with relations (`get_issue(includeRelations=true)`; if selecting
-fields explicitly, include `relations`). Read prerequisite issues only as needed
-to establish readiness and prior review. Check their evidence against the actual
-checkout: a completed dependency in Linear does not place its code on this branch.
-Resolve missing prerequisite code or pending human acceptance before dependent
-implementation; do not clear relations or mark dependencies done to proceed.
-
-Reuse a clear user-selected delivery. For a request to continue, inspect its
-current checkpoint before selecting later work. Resolve ambiguous selection,
-missing acceptance criteria, or conflicting decisions before editing. Status,
-assignment, and a ready plan are not execution authorization. Do not create a
-replacement plan or issue when an existing artifact is missing or inaccessible.
-If Linear is unavailable, report what cannot be read or saved; continue only
-authorized work that does not depend on missing information, without a local copy.
+Read this only when saving authorized issue progress, normally after human
+validation, commit, review and successful push. For loading sources, use
+[Linear delivery](linear-delivery.md).
 
 ## Publication checkpoint
 
@@ -41,7 +10,7 @@ The normal sequence is human validation of the local changes, commit, post-commi
 review and relevant checks, successful push, then issue update and one comment.
 Use [git-commit](../../git-commit/SKILL.md) when committing is requested; it pushes
 after review unless local-only work was requested. Human validation alone is not
-a request to commit unless an explicit [closure agreement](delivery-contract.md)
+a request to commit unless an explicit [closure agreement](../../project-implement/references/delivery-contract.md)
 already covers that acceptance trigger, delivery and destination. Reuse applicable
 authorization without asking for each step.
 
@@ -52,11 +21,6 @@ or readiness for review. If the user requests local-only commits or push fails,
 report the pending publication and leave Linear unchanged. An explicit request
 to record a blocker or provisional update may override this timing; label the
 actual local/unpublished state without claiming completion or publication.
-
-When resuming, read the issue first, then reconcile it with the actual branch,
-working tree, and available conversation. The issue describes the last published
-checkpoint, not all local edits. Resolve unexplained local work before repeating
-or overwriting it; do not infer that unchanged Linear tasks mean no work exists.
 
 After the checkpoint, update only the user-reviewed work included in the pushed
 commits. Preserve unrelated tasks and evidence. Reuse stable task IDs; check a

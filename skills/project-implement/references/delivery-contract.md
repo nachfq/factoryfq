@@ -64,8 +64,9 @@ Name pending, failed, unknown or not-applicable facts honestly. Tie verification
 review and acceptance to the actual content; later substantive changes require
 revalidation of affected work. A push is not a merge; a successful push can coexist
 with a failed issue update. Detail belongs in the issue/local checkpoint, not in
-every worker message or the design document. Before publication, provisional
-state stays in the conversation under the existing publication rules.
+every worker message or the design document. For Linear, provisional state stays in the conversation before publication;
+local plans may record it through their designated writer. Follow
+[project-delivery](../../project-delivery/SKILL.md) for source-specific write timing.
 
 Before claiming the authorized closure is complete, reconcile delivery-owned
 staged, unstaged and untracked changes, artifact destinations, remote publication,

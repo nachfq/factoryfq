@@ -149,6 +149,7 @@ The diagrams summarize these maintained procedures; they do not replace them:
 | Onboarding and shared understanding | [project-discover](../skills/project-discover/SKILL.md) |
 | Direction, technical approach and delivery plan | [project-plan](../skills/project-plan/SKILL.md) |
 | Independent worker assignments and integration | [project-coordinate](../skills/project-coordinate/SKILL.md) |
+| Existing delivery sources and progress checkpoints | [project-delivery](../skills/project-delivery/SKILL.md) |
 | Guided or autonomous implementation | [project-implement](../skills/project-implement/SKILL.md) |
 | Independent delivery review | [project-review](../skills/project-review/SKILL.md) |
 | Authorized commit and push | [git-commit](../skills/git-commit/SKILL.md) |
@@ -159,3 +160,25 @@ Worker model and reasoning preferences are configured by role in the machine-loc
 config; see [the example](../config.example.json). The orchestrator uses the model
 selected by the user. Editor and terminal preferences remain outside this
 development lifecycle.
+
+## Loading instructions by stage
+
+Skill entrypoints retain scope, source authority and human checkpoints. Read only
+the references whose trigger matches the current operation; links are navigation,
+not a request to recursively load every dependency. Reuse applicable instructions
+already read in the session.
+
+- Discovery reads existing context before loading persistence guidance.
+- Planning discusses direction before loading plan-writing formats. Revisions
+  load their procedure when an existing agreement changes.
+- Coordination separates preparing/launching workers from handling their events.
+- Implementation loads the selected mode, then delegation, handoff or publication
+  instructions only at those boundaries.
+- Context lookup and delivery loading do not load Linear mutation procedures.
+- Review distinguishes the caller's setup from the delegated reviewer's job.
+
+Keep short, sequential Git workflows together: all their steps are needed for the
+requested operation. Splitting files is useful only when a real execution path
+can omit them. Preserve essential constraints in the entrypoint even when detailed
+procedures move. Evaluate complete reading paths and behavior, not file length
+alone; more references do not guarantee a smaller context.

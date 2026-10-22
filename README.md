@@ -23,6 +23,8 @@ cycle, skill responsibilities, human checkpoints, and worker communication.
   onboarding, maintaining reusable context.
 - `skills/project-plan/SKILL.md`: collaborative next-step selection and planning
   in local plans or Linear documents and delivery issues.
+- `skills/project-delivery/SKILL.md`: read existing delivery sources and record
+  progress through the selected storage provider.
 - `skills/project-implement/SKILL.md`: guided blocks or autonomous implementation
   within one delivery, with verification and human review before further work.
 - `skills/project-coordinate/SKILL.md`: independent Codex workers with separate
@@ -269,13 +271,24 @@ Workers cannot implement later blocks while you review. Autonomous mode complete
 the agreed delivery and resolves routine technical choices, asking only when
 consequential product or design decisions remain open. It still stops before the
 next delivery. If no mode or preference is established, the skill asks once.
-You can change modes during the delivery.
+You can change modes during the delivery. The implementation entrypoint keeps
+scope and context rules visible, then loads only the selected mode. Delegation
+instructions are read when delegating; handoff/review instructions when the delivery
+is complete; publication procedures when Git closure is authorized. Linear source
+reading is separate from issue publication, so starting work does not load the
+commenting and status-update procedure.
 
 The coordinator reads the saved plan, checks current code and prerequisites, and
 uses native subagents for substantial bounded tasks. Writers stay within the
 current guided block or autonomous delivery and use separate write areas; the
 coordinator integrates and verifies the result. Significant scope or design challenges return to the
 user/planner before the affected work continues.
+
+[project-delivery](skills/project-delivery/SKILL.md) owns reading existing context,
+plans and execution records and saving checkpoints. Implementation owns code,
+collaboration mode and verification; it composes this skill without depending on
+a storage provider. Workers read authoritative sources directly. `project-context`
+continues to own source lookup/setup, and `project-plan` owns plan creation/revision.
 
 For local plans, Next delivery records the mode and a concise resume note. For
 Linear, provisional progress stays in the conversation until the user validates
@@ -289,7 +302,7 @@ remain outside this workflow.
 
 The plan document keeps the design. No local mirror or duplicate tracker is
 created; a fresh session reconciles the last published issue checkpoint with the
-actual working tree. See [Linear implementation](skills/project-implement/references/linear-implementation.md).
+actual working tree. See [Linear delivery](skills/project-delivery/references/linear-delivery.md).
 The coordinator handles corrections before moving on and records acceptance only
 from the user. It does not start or prepare implementation of later deliveries
 while waiting. Wider autonomous work must be explicitly requested. Validation

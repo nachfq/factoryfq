@@ -1,6 +1,6 @@
 ---
 name: project-implement
-description: Implement or revise one planned delivery from local files or Linear in guided or autonomous mode, returning the result for human review.
+description: Implement or revise one planned delivery in guided or autonomous mode, returning the result for human review.
 ---
 
 # Implement one reviewable delivery
@@ -15,42 +15,21 @@ and stop for user review. Remaining tasks, worker completion, passing checks, or
 an open PR do not authorize the next delivery. Honor an explicit request for wider
 autonomous execution; do not infer it from a roadmap or a plan marked ready.
 
-When launched as an independent worker by `project-coordinate`, first read its
-[implementer role](../project-coordinate/references/implementer.md). That assignment
-defines reporting and ownership: keep shared context/plan documents with the parent;
-own progress updates and comments on your assigned Linear issue after publication.
-Handle commit/review/push with direct user authorization or a recorded, scoped
-user agreement relayed in the assignment whose conditions hold. Report the
-outcome to the parent instead of asking it for Git approval.
-Do not interpret the coordinator defaults below as permission to spawn more agents;
-the role permits only its bounded independent delivery review.
+When launched as an independent worker, first read the assigned
+[implementer role](../project-coordinate/references/implementer.md). Its ownership
+and delegation limits override coordinator defaults; it permits only the bounded
+independent reviewer, not more implementation workers.
+
+Read references only at their stated trigger, not recursively at startup. Reuse
+instructions already loaded when still applicable.
 
 ## Select the authorized delivery
 
-Read applicable instructions and `.agent-context/context.md`, if present. Resolve
-the selected plan's existing source through [project-context](../project-context/SKILL.md)
-when needed. Reuse established choices; clarify competing sources before writing.
-Do not migrate or mirror a plan as part of implementation.
-
-Read the applicable project context, including for a Linear delivery, or reuse
-its relevant contents already read in this session. A known link or assignment
-summary alone is insufficient. Apply its criteria to implementation choices;
-reconcile consequential conflicts with the plan instead of treating a task as
-an automatic override. Respect explicit user exceptions and the criteria's scope.
-
-For Linear, follow [Linear implementation](references/linear-implementation.md)
-to read the plan and issue. Update its progress and post an issue comment only
-after the user validates the work and it is committed, reviewed, and pushed.
-Keep provisional progress in this conversation. Do not initialize local context
-or run the local reader for this route.
-
-For local plans, use the existing reader, resolving `SKILL_DIR` to this skill's
-directory:
-
-```sh
-python3 "$SKILL_DIR/../project-plan/scripts/read_plan.py" --repo "$REPO" list
-python3 "$SKILL_DIR/../project-plan/scripts/read_plan.py" --repo "$REPO" show initiative-id
-```
+Use [project-delivery](../project-delivery/SKILL.md) to load the selected delivery
+from its established source, including the actual applicable project context.
+Reuse relevant contents already read; an assignment summary or link alone is not
+sufficient. Apply context criteria to implementation choices and reconcile
+consequential conflicts with the plan. Respect explicit user exceptions.
 
 Read Specs, Technical approach, and the selected delivery's tasks and checkpoint
 from their authoritative locations; consult history only for relevant decisions.
@@ -73,76 +52,30 @@ choices without rediscovering settled ones.
 
 Use the user's requested mode or an applicable agreed preference. If neither is
 known, ask once before editing: guided blocks or autonomous execution of the
-selected delivery? Record the choice in local Next delivery or, for Linear, in
-the conversation until the publication checkpoint permits saving it to the issue.
+selected delivery? Keep the choice in the current checkpoint through
+`project-delivery`, using its source-specific write timing.
 The user can change modes mid-delivery;
 preserve completed work and adjust the next checkpoint. Autonomous
 mode alone never authorizes additional deliveries or Git publication.
 
-### Guided
+Before editing, read only the chosen mode's reference:
 
-Work through one small, meaningful code block at a time: a function, type, or
-connected change the user can understand in one review, not an arbitrary line
-count or an entire delivery disguised as a block. Briefly explain its purpose,
-how it fits the design, and the code about to change. By default, apply that block,
-run the checks meaningful at that point, and return control with file links and
-an explanation of the important code and choices. Disclose any intentionally
-incomplete integration; do not describe a partial block as a verified delivery.
+- [Guided](references/guided.md): one meaningful block, explain it and wait for
+  the user's go-ahead before the next; no background work on future blocks.
+- [Autonomous](references/autonomous.md): finish the selected delivery, then return
+  for human review; routine implementation details do not require approval.
 
-If the user wants review before writing, present the proposed code or diff and
-wait for confirmation before applying it. In either variant, discuss and correct
-the current block and wait for the user's go-ahead before beginning the next.
-A question about the code is not permission to advance. Do not implement future
-blocks in the background while the user reviews. All writers for the current
-block must have returned or been stopped before handing control back.
+If the user changes modes, load the newly applicable reference at that point.
 
-Keep the resume note current in local Next delivery or the conversation for
-Linear: reviewed/applied block, outstanding checks or corrections, and proposed
-next block. Keep a partially implemented task
-active; a block review does not imply completion or acceptance of the whole
-delivery. Replace this note as work advances instead of logging every exchange.
-
-### Autonomous within the delivery
-
-Complete the selected delivery, including integration, checks, and in-scope fixes,
-without asking for approval of each code block. Resolve technical unknowns through
-targeted inspection or research and follow existing conventions for routine
-implementation choices. Bring consequential unresolved choices back to the user
-under the discovery rules below. Present the integrated result for review when
-the delivery is complete, then stop before another delivery.
-
-## Inspect and coordinate
+## Inspect and implement
 
 Inspect the branch, working tree, relevant code, and prerequisite evidence. Preserve
 existing edits and distinguish them from this delivery's changes. Resolve actual
-overlaps or incompatible work before writing; do not reset, stash, or switch away
-someone else's work. Check plan assumptions against the current code.
-
-For native subagent delegation within this session, the coordinator owns
-integration, Git operations, plan updates, and user dialogue.
-Handle small tasks directly. For substantial bounded tasks, use fresh native
-subagents with the minimum necessary context; prefer a fresh context over the
-full planning conversation when supported. No custom agent role or model is
-required by this skill. If delegation is unavailable, work directly and report it.
-
-Give each worker the repository path and relevant plan excerpts or links,
-assigned delivery/task/requirement IDs, collaboration mode and current checkpoint,
-design constraints, prerequisites,
-explicit read-only or editing scope, owned files or areas, and expected checks.
-Request changed paths, observed
-check results, unresolved issues, and a concise explanation of the result.
-These native subagents must stay within their assignment, report challenges to the coordinator,
-and return without starting another task, spawning workers, changing the plan,
-or committing/pushing. They must preserve others' edits in the shared checkout.
-For these native subagents, only their coordinator writes Linear documents and issues.
-
-In guided mode, scope writers to the current block; delegate bounded read-only
-investigation when useful without deciding future blocks for the user. In autonomous
-mode, parallelize independent tasks within the active delivery, with disjoint write
-ownership. Serialize dependencies and shared-file changes; coordinate broad
-formatters, generators, and dependency updates. Do not delegate tasks from later
-deliveries or start their preparatory implementation while awaiting human review.
-Inspect each returned diff before integrating or using it as a prerequisite.
+overlaps before writing; do not reset, stash, or switch away someone else's work.
+Check plan assumptions against the current code. Handle small work directly.
+When delegating substantial bounded work as a coordinator, first read
+[delegation](references/delegation.md). Delegation must stay within the current
+mode, authorized delivery and file ownership; it never bypasses human checkpoints.
 
 ## Handle discoveries without expanding scope
 
@@ -169,50 +102,24 @@ delivery? Correct unjustified additions within scope before handoff; explain any
 remaining conflict. Passing checks alone does not establish that fit.
 Run relevant checks on the integrated result, reusing still-valid evidence where
 appropriate. Worker success alone does not prove the pieces work together. Complete
-in-scope fixes; report failed, skipped, or unavailable checks honestly. For local
-plans, update states and evidence using the
-[local plan format](../project-plan/references/plan-format.md). For Linear, report
-provisional outcomes in the conversation; defer description, checklist, state,
-and comment writes until the publication checkpoint in the reference above.
+in-scope fixes; report failed, skipped, or unavailable checks honestly.
+Use `project-delivery` to maintain the current checkpoint under its source's write
+rules, including provisional notes when persistence must wait.
 
 In either mode, once implementation and checks are complete, present the delivery
-as awaiting user review. For local plans, mark verified tasks done, keep Next
-delivery on this delivery, and keep the initiative active. For Linear, leave the
-saved issue unchanged until reviewed work is committed and pushed. Do not advance
-to later work or claim acceptance before user review. Report actual blockers and
-unfinished checks instead of claiming a review-ready result.
+as awaiting user review. Do not advance to later work or claim acceptance before
+user review. Report actual blockers and unfinished checks instead of claiming a
+review-ready result.
 
-## Review the delivery independently
+## Continue at the appropriate boundary
 
-After completing the selected delivery and its checks, use
-[project-review](../project-review/SKILL.md) before the final user/coordinator handoff,
-unless the user opts out or valid review evidence covers the identical target.
-An explicit request for another review requires reading the current review skill
-and invoking that pass; an earlier clean result does not satisfy the request.
-Invoke the reviewer directly with fresh context; no orchestrator approval is needed.
-This reviews the cumulative delivery, including uncommitted work when present,
-not each guided block or partial commit. Respect its one full pass and at most one
-focused follow-up. Assess findings, apply in-scope corrections in the agreed mode,
-and disclose unresolved issues. Review does not authorize commit/push or replace
-user acceptance. `git-post-commit` remains a separate bounded commit fine-tuning step.
+After a guided block, follow its checkpoint and wait before the next block. Once the
+whole selected delivery and its checks are complete, read
+[handoff](references/handoff.md) for independent review and the final user handoff.
+Also read it when explicitly asked for a delivery review. Independent review is
+required at that boundary unless opted out or valid evidence covers the identical
+target; it does not replace human acceptance or authorize Git operations.
 
-## Present the completed delivery and stop
-
-Finish with the implemented outcome, a short technical explanation, an ordered
-guide to the important diff, checks and results, and any limitations or decisions
-still needed, plus the independent review target, outcome and remaining findings.
-Include the plan path or Linear plan/issue URLs and how the user can
-try the change. Present one integrated review surface, not a stream of worker reports. All workers for
-the delivery must have returned or been stopped before this review handoff.
-
-Report the delivery agreement's compact factual checkpoint and remaining action.
-Wait for user review; after acceptance, execute any already-authorized closure
-whose conditions hold without asking for the same permission again. For requested corrections,
-reopen affected tasks at the appropriate checkpoint, fix and verify them, and
-present the same delivery again. Record acceptance only when the user gives it;
-propose the next delivery without starting it. Validation alone does not request
-a commit unless an explicit scoped closure policy already authorizes it at that
-checkpoint. Use `git-commit` for that authorization or a direct request; it reviews and pushes
-by default; honor local-only requests. After successful push of user-reviewed work,
-update Linear through its publication checkpoint. PR creation, release publication,
-and merge remain separately authorized actions.
+Read [publication](references/publication.md) only when commit/push is requested
+or an applicable scoped closure agreement authorizes it. Code approval alone is
+insufficient. PRs, releases and merges require separate authorization.

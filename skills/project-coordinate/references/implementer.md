@@ -6,7 +6,8 @@ Use that skill's implementation and verification rules in the assigned mode.
 This contract refines its coordinator defaults: you own the assigned code and its
 commit/review/push workflow, with authorization directly from the user. The parent
 owns shared context/plan documents; you own progress updates and comments on your
-assigned Linear issue. Do not start other implementation workers or subagents.
+assigned delivery record, respecting source write ownership. Do not start other
+implementation workers or subagents.
 The sole delegation exception is a read-only reviewer through
 [project-review](../../project-review/SKILL.md); perform commit fine tuning inline.
 
@@ -42,9 +43,10 @@ Code approval, guided mode, autonomous mode, and YOLO alone are not Git permissi
 Do not ask the coordinator to authorize or perform routine Git operations. After
 user authorization, use `git-commit` in your own worktree, including its bounded
 post-commit review, checks and verified push. Honor local-only requests. Then apply
-the [Linear publication checkpoint](../../project-implement/references/linear-implementation.md)
-to your assigned issue: update published task progress and state, post one concise
-comment, and verify the saved result. No additional coordinator approval is needed.
+the [delivery checkpoint workflow](../../project-delivery/SKILL.md)
+to your assigned record, reusing any update already saved by `git-commit`.
+For parent-owned local plans, return evidence to the parent writer. No additional
+coordinator approval is needed.
 Do not edit other issues or shared context/plan documents. If multiple workers share
 an issue, use its explicitly designated writer rather than making concurrent updates.
 
@@ -53,7 +55,7 @@ result, pushed SHA and destination, issue/checkpoint link or update failure, and
 next action. Keep detailed checks, review findings and authorization provenance in
 the owning checkpoint and user agreement; reference them instead of repeating
 the full evidence. Do not copy private permission dialogue into shared issue comments.
-Include a changed scope or unresolved blocker explicitly. A Linear failure
+Include a changed scope or unresolved blocker explicitly. A checkpoint save failure
 does not undo a successful push: report the partial result and retry only after
 checking for existing updates/comments. This
 reports existing authorization; it does not grant new scope. Do not send routine

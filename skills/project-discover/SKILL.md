@@ -16,24 +16,13 @@ an implementation goal and does not authorize code changes, commits, or a work p
 
 ## Orient before interviewing
 
-Find the repository root and read applicable instructions. Reuse relevant context
-and its established source; an explicit destination takes precedence. Use
-[project-context](../project-context/SKILL.md) only to resolve a missing source or
-association, or perform requested setup. Inspect `.agent-context` explicitly when
-needed, since ordinary searches may skip ignored directories. Missing local context
-alone does not trigger a Linear search. If no destination is established, resolve local
-excluded, versioned, or Linear storage before writing; unavailable Linear access
-does not authorize a local fallback. Continue useful read-only exploration while
-the choice is pending.
-
-For Linear, verify the repository association and follow the shared
-[Linear context document](../project-context/references/linear-context.md) rules
-to locate, read, and maintain the document. A request to discover using Linear
-authorizes creating or updating useful context in the resolved project; it does
-not authorize creating a missing project or association unless that setup was
-also requested. If local and Linear copies compete without a clear choice,
-resolve which is authoritative before writing. Do not merge or migrate them
-implicitly, or create a local mirror of Linear content.
+Find the repository root and reuse existing context and its established source.
+Inspect `.agent-context` explicitly when needed because searches may skip ignored
+files. Missing local context alone does not trigger a Linear lookup. When the
+source is unresolved, or before saving context, read
+[context storage](references/context-storage.md). Resolve competing destinations
+before writing; unavailable Linear access does not authorize local fallback.
+Read only references needed for the current stage, not all references at startup.
 
 Read existing context, the README, and a focused file listing. Follow relevant
 documentation links and inspect entry points, manifests, or checks to understand
@@ -63,45 +52,14 @@ into commitments. A research subagent returns evidence and decision gaps to this
 conversation; it does not conduct a separate user interview. External research is
 useful for a named gap, not a required onboarding step.
 
-## Maintain a concise context document
+## Persist durable understanding
 
-Once there is useful material and the destination is resolved, create or update
-`.agent-context/context.md` for local storage or the selected Linear context
-document. Use the project's documentation language. Organize
-around durable guidance: a brief orientation, working conventions, maintainer
-criteria, repository responsibilities, and authoritative sources. Retain only
-cross-delivery decisions or open questions that change future work. Feature-specific
-contracts and debates belong in their plan and delivery issue, not here.
-
-Select what to persist, rather than summarizing everything inspected:
-
-- Prioritize knowledge that is hard to recover from the repo: user intent,
-  project-specific constraints, maintainer decisions, and why related repos matter.
-  Cite the source and scope. Before promoting feedback into a lasting rule, assess
-  whether it applies beyond this delivery and is already covered. A clarification
-  of one method is not a new project convention; keep it with that feature. Preserve
-  a general principle once, without accumulating examples of every correction.
-- Keep only enough technical orientation to navigate. Link to authoritative docs
-  for APIs, versions, component inventories, and development commands. Retain a
-  non-obvious technical constraint when it materially changes future decisions.
-- Keep provisional execution details in the conversation and published evidence
-  in the delivery issue (or local Tasks/checkpoint). Branch/HEAD, synchronization,
-  checks and review status are not project context. Link to a blocker if its
-  implication affects future work; do not reproduce its execution history or
-  duplicate personal defaults and project instructions.
-- Keep potential next initiatives brief and explicitly tentative. Detailed scope,
-  task breakdowns, API proposals, and validation plans belong to planning.
-
-Distinguish observed facts, user decisions, hypotheses, and unresolved questions.
-Link to repository-relative sources in local context; in Linear, qualify paths
-with their repository or use canonical URLs. Keep machine paths out of shared
-content. This document is a navigation aid and
-current understanding, not a replacement README, code inventory, or chat transcript.
-
-Update the same document as answers arrive. Preserve unrelated useful context,
-replace superseded statements, and remove duplication rather than appending a
-history of every turn. Do not silently settle conflicting evidence; clarify it
-or leave the uncertainty visible. Create no empty research or planning folders.
+Once useful material exists and its destination is resolved, read
+[durable context](references/durable-context.md) before creating or updating it.
+Keep intent, constraints, maintainer criteria, repository responsibilities, and
+links to authoritative sources. Distinguish facts, decisions, hypotheses, and
+open questions. Feature contracts and execution evidence belong in their delivery;
+context is a concise navigation aid, not a transcript or code inventory.
 
 ## Close at a useful boundary
 

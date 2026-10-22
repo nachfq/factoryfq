@@ -70,14 +70,12 @@ file exclusions; never include credentials or machine-local state.
    After a failed or uncertain response, inspect remote state before retrying.
    Verify that the remote branch points to the intended commit. Unresolved checks
    or review findings stop automatic publication; report the local commits and gap.
-8. If this work has an explicitly selected Linear delivery, follow its
-   [publication checkpoint](../project-implement/references/linear-implementation.md)
-   after successful push. Update only the user-reviewed work actually published;
-   do not start implementation or discover an issue for every ordinary commit.
-   Local-only work and failed pushes leave Linear progress unchanged.
-   Follow the assigned issue ownership: an independent implementer updates its own
-   issue and reports the saved result to its parent. If another writer was explicitly
-   designated, send evidence to that writer instead; never duplicate updates.
+8. If this work has an explicitly selected delivery, use
+   [project-delivery](../project-delivery/SKILL.md) to record the user-reviewed work
+   actually published, following source timing and assigned writer ownership.
+   Do not discover a delivery for an ordinary commit. If another writer owns the
+   record, return evidence to that writer; never duplicate updates. Report failed
+   or local-only publication accurately without claiming a published checkpoint.
 
 Report the branch, commit hashes and subjects, verification results, and any
 remaining uncommitted changes. Include the push destination and verified result

@@ -56,27 +56,8 @@ Git remote. If only the name or description matches, report a candidate rather
 than confirming an association. Mention absent local metadata only if relevant
 to the user's question; it is not required evidence for a Linear association.
 
-## Create or associate when authorized
+## Authorized setup
 
-Check for existing matching projects before creation to avoid duplicates. Use
-`save_project` with the agreed `name`, verified team ID in `addTeams`, and `links`
-as an array of `{title, url}` entries using the convention above. A concise
-summary and repository responsibilities may describe the agreed scope; do not
-invent a roadmap, deadlines, or ownership. Use the team's default status unless
-the user requested another one.
-
-For an existing project, first read its Resources and preserve unrelated content.
-Inspect the available update semantics before modifying its links; this workflow
-has verified creation with multiple links, not whether an update appends or
-replaces them. Skip already matching links. If a mutation fails or times out,
-read the resulting state before retrying creation or link insertion.
-
-Read the saved project back with `includeResources=true`. Verify its team and all
-requested repository URLs, and return the project URL and identifier. Record no
-credentials, machine paths, or private project content in the factoryfq repository.
-Project visibility follows Linear access controls; links do not configure GitHub
-issue synchronization or grant repository access.
-
-Report partial success accurately. Project creation and association do not mean
-context, plans, or tasks have been migrated. Existing local artifacts remain
-untouched until migration is agreed.
+Only when project creation or repository association is requested, read
+[Linear project setup](linear-project-setup.md). Do not load that procedure for
+an association lookup.
