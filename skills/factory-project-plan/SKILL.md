@@ -59,6 +59,10 @@ to design, scope, and verification; explain the technical approach before the ta
 breakdown. Justify the smallest sufficient validation, and agree a bounded delivery
 that the human can review. A speculative draft must keep its assumptions and
 unchosen direction visible; it does not authorize delivery issues by itself.
+If no project documentation and work-tracking language is established, ask before
+writing the first plan or issue; do not infer it from the conversation. Reuse an
+explicit answer for this initiative, and record it in the plan unless project
+context already records it. Do not create context storage solely for this choice.
 
 When evidence requires a revision, read
 [revision and handoff](references/revision-handoff.md) before changing the plan.

@@ -7,6 +7,9 @@ around durable guidance: a brief orientation, working conventions, maintainer
 criteria, repository responsibilities, and authoritative sources. Retain only
 cross-delivery decisions or open questions that change future work. Feature-specific
 contracts and debates belong in their plan and delivery issue, not here.
+Record an agreed documentation and work-tracking language among the working
+conventions so later plans, issues, and repository docs can reuse it. Do not treat
+the language used with the agent as the project's language by default.
 
 Select what to persist, rather than summarizing everything inspected:
 

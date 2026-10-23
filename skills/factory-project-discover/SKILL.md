@@ -56,6 +56,11 @@ useful for a named gap, not a required onboarding step.
 
 Once useful material exists and its destination is resolved, read
 [durable context](references/durable-context.md) before creating or updating it.
+For a new project with no established language for documentation and work tracking,
+ask the user which language to use before writing the first context document.
+Do not infer that choice from the conversation or an external source such as an RFP;
+the conversation may remain in a different language. Reuse an existing convention
+or explicit choice without asking again.
 Keep intent, constraints, maintainer criteria, repository responsibilities, and
 links to authoritative sources. Distinguish facts, decisions, hypotheses, and
 open questions. Feature contracts and execution evidence belong in their delivery;
