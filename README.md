@@ -194,10 +194,15 @@ useful context. Updates use fresh reads and focused edits, followed by readback.
 There is no local mirror. Competing sources or conflicting decisions are resolved
 before writing. See [Linear context document](skills/factory-project-context/references/linear-context.md).
 
-The result is a concise, evolving document that separates facts and decisions
-from hypotheses and open questions, linking to existing documentation instead of
-copying it. It creates no empty research folders, implementation plan, or code
-changes. Use `factory-project-plan` next when you want to choose and plan an initiative.
+Discovery saves useful findings at conversation boundaries without a separate save
+request, once storage and language are resolved. Context stays a short orientation
+and map; detailed learning lives in maintained topic notes under
+`.agent-context/research/` or `Research: <topic>` documents in the same Linear
+project. Agents follow relevant links on demand and reuse notes across sessions
+and collaborators. Facts, interpretations, and decisions remain distinct. Read-only
+and chat-only requests are respected. Discovery creates no placeholder notes,
+implementation plan, or code changes. Use `factory-project-plan` next when you
+want to choose and plan an initiative.
 Saving context in Linear does not create issues or migrate existing plans.
 
 ## Plan project work

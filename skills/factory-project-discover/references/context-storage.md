@@ -14,7 +14,8 @@ For Linear, verify the repository association and follow the shared
 [Linear context document](../../factory-project-context/references/linear-context.md) rules
 to locate and read the document. Before persisting changes, read
 [Linear context writing](../../factory-project-context/references/linear-context-write.md). A request to discover using Linear
-authorizes creating or updating useful context in the resolved project; it does
+authorizes maintaining useful context and research notes during that discovery
+and its follow-up discussion, without a separate save request; it does
 not authorize creating a missing project or association unless that setup was
 also requested. If local and Linear copies compete without a clear choice,
 resolve which is authoritative before writing. Do not merge or migrate them

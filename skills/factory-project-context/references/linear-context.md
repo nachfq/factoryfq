@@ -29,7 +29,9 @@ the missing context; do not silently establish a local replacement.
 Read the document before asking onboarding questions or relying on its decisions.
 Use it as context, verify facts relevant to the current task, and follow only
 relevant references. Do not load all plans, issues, comments, or history as part
-of context loading. If a local copy also exists, reuse an explicit source choice;
+of context loading. Topic research stays in linked notes; follow those relevant to
+the question rather than expecting all findings inside `Project context`.
+If a local copy also exists, reuse an explicit source choice;
 otherwise clarify the authority before reconciling or writing either copy.
 
 ## Authorized persistence

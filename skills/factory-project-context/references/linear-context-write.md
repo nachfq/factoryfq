@@ -15,6 +15,11 @@ criteria and cross-delivery questions; feature-specific contracts and unresolved
 API choices stay in their plan/issue. Use the selection and pruning rules in
 [durable context](../../factory-project-discover/references/durable-context.md)
 for content updates; an exchange with the user does not itself merit a new rule.
+Put detailed learning and investigations in
+[research notes](../../factory-project-discover/references/research-notes.md),
+keeping only their project implications and links here. Verify the note before
+replacing existing research detail in context; never leave context as the only
+copy of an expanding investigation.
 
 Qualify code paths by repository, or link to canonical GitHub sources when known;
 do not invent a published URL for unpushed code or store machine-specific paths.
@@ -28,7 +33,8 @@ understanding, not a transcript, backlog, or duplicate technical documentation.
 `factory-project-discover` owns the content-writing workflow. The main discovery agent
 writes; its read-only workers return evidence. Once the project and destination
 are resolved, an explicit discovery request using Linear authorizes saving the
-result there without asking for approval of every paragraph. A request merely to
+context and topic notes there at useful boundaries, including follow-up learning,
+without waiting for a separate save request or approval of every paragraph. A request merely to
 find or read context does not. Do not create placeholder documents before there
 is useful content, copy local context without a migration request, or change
 sharing, project membership, issues, or GitHub synchronization.
