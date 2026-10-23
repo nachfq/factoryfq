@@ -14,21 +14,21 @@ plan. Explicit user scope and project instructions take precedence.
 
 ```mermaid
 flowchart TD
-    New["New repository"] --> Setup["git-start-project<br/>Local repo, GitHub remote and policy"]
+    New["New repository"] --> Setup["factory-git-start-project<br/>Local repo, GitHub remote and policy"]
     Existing["Existing repository"] --> Context
-    Setup --> Context["project-context<br/>Find context or set up storage when requested"]
-    Context --> Discover["project-discover, when useful<br/>Explore and discuss goals and constraints"]
+    Setup --> Context["factory-project-context<br/>Find context or set up storage when requested"]
+    Context --> Discover["factory-project-discover, when useful<br/>Explore and discuss goals and constraints"]
     Context -->|"Context already sufficient"| Plan
-    Discover --> Plan["project-plan<br/>Compare directions, then build the chosen plan"]
+    Discover --> Plan["factory-project-plan<br/>Compare directions, then build the chosen plan"]
     Plan --> Scope["User authorizes one bounded delivery<br/>Choose guided or autonomous mode"]
-    Scope --> Direct["project-implement<br/>Work directly with the user"]
-    Scope -->|"Independent workers requested"| Coordinate["project-coordinate<br/>Check dependencies and assign worktrees"]
-    Coordinate --> Workers["project-implement per worker<br/>Parallel only where work is independent"]
-    Direct --> Review["project-review<br/>Whole delivery; no PR required"]
+    Scope --> Direct["factory-project-implement<br/>Work directly with the user"]
+    Scope -->|"Independent workers requested"| Coordinate["factory-project-coordinate<br/>Check dependencies and assign worktrees"]
+    Coordinate --> Workers["factory-project-implement per worker<br/>Parallel only where work is independent"]
+    Direct --> Review["factory-project-review<br/>Whole delivery; no PR required"]
     Workers --> Review
     Review --> Handoff["Result and human review<br/>Corrections retain the agreed collaboration mode"]
     Handoff --> Publish["User-authorized publication<br/>Commit, fine tune, push and record progress"]
-    Publish --> PR["On a separate user request: git-pr<br/>Create or update PR and report CI"]
+    Publish --> PR["On a separate user request: factory-git-pr<br/>Create or update PR and report CI"]
     PR --> Merge["Merge when authorized and conditions are met<br/>Reconcile integration before dependent work"]
 ```
 
@@ -69,7 +69,7 @@ sequenceDiagram
         end
         O->>I: Bounded answer; user checkpoints still apply
     end
-    I->>R: project-review: pinned cumulative diff, plan and constraints
+    I->>R: factory-project-review: pinned cumulative diff, plan and constraints
     R-->>I: Findings or explicit clean result; verification limits
     I->>U: Review outcome and proposed corrections, if any
     Note over U,I: Guided fixes retain user checkpoints; autonomous fixes stay within scope
@@ -83,7 +83,7 @@ sequenceDiagram
     I-->>O: ready: delivery summary, review target and remaining findings
     I->>U: Final result for validation; request commit/push unless already authorized
     U->>I: Validate work and authorize publication
-    I->>I: git-commit: commit, git-post-commit, checks and verified push
+    I->>I: factory-git-commit: commit, factory-git-post-commit, checks and verified push
     opt Linear-backed delivery
         I->>L: Update published task progress/state and one comment
         L-->>I: Read back and verify saved result
@@ -111,7 +111,7 @@ user accepted the delivery. The orchestrator receives summaries, not routine log
 
 ## Publication and checkpoints
 
-Before implementation, agree the [delivery destinations and closure policy](../skills/project-implement/references/delivery-contract.md).
+Before implementation, agree the [delivery destinations and closure policy](../skills/factory-project-implement/references/delivery-contract.md).
 Work branches, combined integration and upstream PR targets may differ. Code,
 docs and examples each have an intended delivery/PR or an explicit local-only use.
 A user may authorize commit/review/push and issue updates once for named deliveries,
@@ -120,8 +120,8 @@ YOLO do not imply it. PRs and merges still require their own explicit authorizat
 Report verification, review, acceptance, push, issue update and PR state separately;
 reconcile delivery-owned leftovers before claiming closure, preserving unrelated work.
 
-- `project-review` examines the cumulative delivery, even with uncommitted changes.
-  `git-post-commit` checks and fine-tunes the specific commits just created; it is
+- `factory-project-review` examines the cumulative delivery, even with uncommitted changes.
+  `factory-git-post-commit` checks and fine-tunes the specific commits just created; it is
   not another full feature review. Both report their actual outcome.
 - The user may authorize intermediate commits and pushes before the delivery is
   finished. Those run the Git workflow without triggering a full review after
@@ -144,17 +144,17 @@ The diagrams summarize these maintained procedures; they do not replace them:
 
 | Responsibility | Skill |
 | --- | --- |
-| Repository and GitHub setup | [git-start-project](../skills/git-start-project/SKILL.md) |
-| Context location and setup | [project-context](../skills/project-context/SKILL.md) |
-| Onboarding and shared understanding | [project-discover](../skills/project-discover/SKILL.md) |
-| Direction, technical approach and delivery plan | [project-plan](../skills/project-plan/SKILL.md) |
-| Independent worker assignments and integration | [project-coordinate](../skills/project-coordinate/SKILL.md) |
-| Existing delivery sources and progress checkpoints | [project-delivery](../skills/project-delivery/SKILL.md) |
-| Guided or autonomous implementation | [project-implement](../skills/project-implement/SKILL.md) |
-| Independent delivery review | [project-review](../skills/project-review/SKILL.md) |
-| Authorized commit and push | [git-commit](../skills/git-commit/SKILL.md) |
-| Bounded commit fine tuning | [git-post-commit](../skills/git-post-commit/SKILL.md) |
-| Requested PR creation/update and CI reporting | [git-pr](../skills/git-pr/SKILL.md) |
+| Repository and GitHub setup | [factory-git-start-project](../skills/factory-git-start-project/SKILL.md) |
+| Context location and setup | [factory-project-context](../skills/factory-project-context/SKILL.md) |
+| Onboarding and shared understanding | [factory-project-discover](../skills/factory-project-discover/SKILL.md) |
+| Direction, technical approach and delivery plan | [factory-project-plan](../skills/factory-project-plan/SKILL.md) |
+| Independent worker assignments and integration | [factory-project-coordinate](../skills/factory-project-coordinate/SKILL.md) |
+| Existing delivery sources and progress checkpoints | [factory-project-delivery](../skills/factory-project-delivery/SKILL.md) |
+| Guided or autonomous implementation | [factory-project-implement](../skills/factory-project-implement/SKILL.md) |
+| Independent delivery review | [factory-project-review](../skills/factory-project-review/SKILL.md) |
+| Authorized commit and push | [factory-git-commit](../skills/factory-git-commit/SKILL.md) |
+| Bounded commit fine tuning | [factory-git-post-commit](../skills/factory-git-post-commit/SKILL.md) |
+| Requested PR creation/update and CI reporting | [factory-git-pr](../skills/factory-git-pr/SKILL.md) |
 
 Worker model and reasoning preferences are configured by role in the machine-local
 config; see [the example](../config.example.json). The orchestrator uses the model
