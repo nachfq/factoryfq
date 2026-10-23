@@ -12,6 +12,11 @@ as an array of `{title, url}` entries using the convention above. A concise
 summary and repository responsibilities may describe the agreed scope; do not
 invent a roadmap, deadlines, or ownership. Use the team's default status unless
 the user requested another one.
+Before writing a new project's prose summary or description, resolve its
+documentation and work-tracking language. Reuse an established convention or
+explicit choice; otherwise ask the user instead of inferring it from the chat or
+RFP. Keep a user-provided project name as given. Linking an existing project does
+not require asking again when its language is already established.
 
 For an existing project, first read its Resources and preserve unrelated content.
 Inspect the available update semantics before modifying its links; this workflow
