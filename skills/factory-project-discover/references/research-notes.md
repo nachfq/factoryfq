@@ -8,10 +8,19 @@ once the destination is agreed. Explicit read-only or chat-only requests take pr
 ## One maintained note per coherent topic
 
 Find an existing relevant note before creating one. Organize by question or topic,
-not by person, session, or date. Reuse established titles and IDs. Closely related
-questions can share a note; split when they answer different retrieval needs.
+not by person, session, or date. Reuse established IDs where practical; a related
+note is a candidate destination, not a permanent container for every follow-up.
 Skip generic explanations already covered by a useful linked source unless the
 project-specific interpretation or reasoning would otherwise be lost.
+
+On each substantive update, reassess the affected note's scope and organization.
+Keep related explanations together when they support the same question. Split
+independently useful topics when a reader would otherwise load unrelated detail;
+merge overlapping notes and replace repetition with one explanation and links.
+Choose based on retrieval needs, not a fixed length or one note per conversation.
+Perform this routine maintenance within the selected storage without asking the
+user to design the structure; ask only when meaning or an agreed decision is unclear.
+Keep the title and opening summary representative of the resulting content.
 
 Use a descriptive title and a short opening answer or summary. Keep scoped findings
 and source links, the rationale for alternatives, and consequential open questions.
@@ -42,7 +51,11 @@ preserve unrelated contributions. Prefer focused changes. Concurrent agents shou
 own separate topics or coordinate one writer for a shared note; fresh reads and
 patches do not provide a lock. Reread after a conflict or uncertain write and resolve
 conflicting decisions instead of overwriting them. Verify note contents and location
-before shortening an overloaded context, then verify its new link. After partial
+before removing moved detail from its former location. Update context/topic links
+and known inbound references; retain a brief pointer at an old location when needed
+to keep existing links useful, rather than a second copy of the content. Preserve
+sources, qualifications, and unresolved disagreements through reorganization.
+Verify the resulting links. After partial
 failure, report what saved and complete only missing steps; do not delete the only
 copy of useful findings.
 

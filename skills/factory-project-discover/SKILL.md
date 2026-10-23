@@ -74,7 +74,9 @@ Choose the destination by content, not by whichever document is already open:
 - **Context:** brief project intent, durable working criteria, repository roles,
   consequential open questions, and links. Follow [durable context](references/durable-context.md).
 - **Research note:** explanations, comparisons, source-backed findings, and the
-  reasoning behind open alternatives. Follow [research notes](references/research-notes.md).
+  reasoning behind open alternatives. Own their organization as they evolve:
+  consolidate, split, and relink without waiting for the user to direct routine
+  maintenance. Follow [research notes](references/research-notes.md).
 - **Plan or issue:** agreed specs/design or execution evidence belong to their
   existing workflow; research alone does not authorize creating them.
 
