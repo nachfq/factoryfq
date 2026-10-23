@@ -48,7 +48,7 @@ class InstallTests(unittest.TestCase):
         result = self.run_installer()
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertFalse(self.home.exists())
-        self.assertTrue((self.target / 'project-plan/SKILL.md').is_file())
+        self.assertTrue((self.target / 'factory-project-plan/SKILL.md').is_file())
         self.assertFalse((self.target / 'omarchy-nvim-herdr').exists())
 
     def test_conflicting_file_requires_explicit_backup(self):

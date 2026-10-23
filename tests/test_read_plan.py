@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / 'skills/project-plan/scripts/read_plan.py'
+SCRIPT = Path(__file__).resolve().parents[1] / 'skills/factory-project-plan/scripts/read_plan.py'
 
 
 class ReadPlanTests(unittest.TestCase):

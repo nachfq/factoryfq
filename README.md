@@ -9,25 +9,31 @@ cycle, skill responsibilities, human checkpoints, and worker communication.
 
 ## Included workflows
 
+Every skill name starts with `factory-` so it remains recognizable alongside
+skills from other sources. Invoke the new names explicitly (for example,
+`$factory-project-plan`); the previous unprefixed names are no longer installed.
+
 - `install-codex.py`: the Codex adapter and installer, using Python 3's standard library.
-- `skills/git-start-project/SKILL.md`: local folder, Git repository, GitHub remote,
+- `skills/factory-git-start-project/SKILL.md`: local folder, Git repository, GitHub remote,
   and repository policy setup.
-- `skills/git-commit/SKILL.md`: focused commits following personal and project
+- `skills/factory-git-commit/SKILL.md`: focused commits following personal and project
   conventions.
-- `skills/git-post-commit/SKILL.md`: bounded review and necessary corrections after
+- `skills/factory-git-post-commit/SKILL.md`: bounded review and necessary corrections after
   committing.
-- `skills/git-pr/SKILL.md`: branch publication, PR creation or updates, and CI status.
-- `skills/project-context/SKILL.md`: versioned or locally excluded context storage,
+- `skills/factory-git-pr/SKILL.md`: branch publication, PR creation or updates, and CI status.
+- `skills/factory-project-context/SKILL.md`: versioned or locally excluded context storage,
   and explicit repository associations with Linear projects.
-- `skills/project-discover/SKILL.md`: project exploration and conversational
+- `skills/factory-project-discover/SKILL.md`: project exploration and conversational
   onboarding, maintaining reusable context.
-- `skills/project-plan/SKILL.md`: collaborative next-step selection and planning
+- `skills/factory-project-plan/SKILL.md`: collaborative next-step selection and planning
   in local plans or Linear documents and delivery issues.
-- `skills/project-implement/SKILL.md`: guided blocks or autonomous implementation
+- `skills/factory-project-delivery/SKILL.md`: read existing delivery sources and record
+  progress through the selected storage provider.
+- `skills/factory-project-implement/SKILL.md`: guided blocks or autonomous implementation
   within one delivery, with verification and human review before further work.
-- `skills/project-coordinate/SKILL.md`: independent Codex workers with separate
+- `skills/factory-project-coordinate/SKILL.md`: independent Codex workers with separate
   worktrees, bidirectional questions, and sequential review through a main session.
-- `skills/project-review/SKILL.md`: independent delivery review before handoff,
+- `skills/factory-project-review/SKILL.md`: independent delivery review before handoff,
   without requiring a PR or committing unfinished work.
 - `config.example.json`: portable example for each machine's local preferences.
 
@@ -91,7 +97,7 @@ projects can go directly under their root; grouped organization projects can ask
 for a subfolder on each creation. A group explicitly provided in the request is
 used without asking again. Missing configuration is clarified before creation.
 
-Invoke `$git-start-project` or ask naturally to create a repository, for example:
+Invoke `$factory-git-start-project` or ask naturally to create a repository, for example:
 
 > Create a private personal repo named demo; only initialize it.
 
@@ -108,13 +114,13 @@ require Pro for personal owners or Team/Enterprise Cloud for organizations.
 A missing plan is treated as unknown and checked through a read-only API request.
 Unsupported protection is reported explicitly; squash settings are independent.
 Existing policies are inspected and preserved. See the skill's
-[GitHub policy](skills/git-start-project/references/github-policy.md) and JSON payloads.
+[GitHub policy](skills/factory-git-start-project/references/github-policy.md) and JSON payloads.
 
 ## Initialize project context
 
-Use `$project-context` in a new or existing repository. It configures
+Use `$factory-project-context` in a new or existing repository. It configures
 `.agent-context/` and records `versioning` as `local` or `versioned` in
-`config.json`. `git-start-project` offers this setup when creating a project.
+`config.json`. `factory-git-start-project` offers this setup when creating a project.
 For example:
 
 > Initialize local, excluded context in this repository.
@@ -135,14 +141,14 @@ define a planner, perform research, or populate those documents.
 
 ## Associate repositories with Linear
 
-For Linear-backed work, `project-context` can currently find or create a project
+For Linear-backed work, `factory-project-context` can currently find or create a project
 and associate repositories through its Resources links. Questions such as "Does
 this repository have an associated Linear project?" use a read-only lookup that
 verifies a Resource URL against the Git remote. Ask explicitly to set up or change
 an association. It requires an authenticated Linear MCP connection and creates
-no mandatory local pointer. See [Linear project associations](skills/project-context/references/linear-projects.md)
+no mandatory local pointer. See [Linear project associations](skills/factory-project-context/references/linear-projects.md)
 for discovery and verification rules. Association does not migrate existing
-context or plans. Workflows call `project-context` only for an explicit context
+context or plans. Workflows call `factory-project-context` only for an explicit context
 request or a task that needs context not already available. Missing local
 context and available Linear tools do not trigger a search on their own.
 
@@ -168,7 +174,7 @@ create storage automatically.
 
 ## Discover a project
 
-Use `$project-discover` to understand a project together and build or refresh
+Use `$factory-project-discover` to understand a project together and build or refresh
 local `.agent-context/context.md` or a `Project context` document attached to its
 associated Linear project. For example:
 
@@ -177,7 +183,7 @@ associated Linear project. For example:
 > Discover this project using Linear to store its context.
 
 The skill reads relevant project evidence before asking focused questions about
-your goals, constraints, decisions, and related repos. It uses `project-context`
+your goals, constraints, decisions, and related repos. It uses `factory-project-context`
 if storage needs setup, and reuses existing context when available. The current
 agent leads the conversation, with bounded research delegated when useful.
 
@@ -186,17 +192,17 @@ before interviewing. The same document holds shared understanding and relevant
 repo-specific responsibilities; discovery from either repo preserves the other's
 useful context. Updates use fresh reads and focused edits, followed by readback.
 There is no local mirror. Competing sources or conflicting decisions are resolved
-before writing. See [Linear context document](skills/project-context/references/linear-context.md).
+before writing. See [Linear context document](skills/factory-project-context/references/linear-context.md).
 
 The result is a concise, evolving document that separates facts and decisions
 from hypotheses and open questions, linking to existing documentation instead of
 copying it. It creates no empty research folders, implementation plan, or code
-changes. Use `project-plan` next when you want to choose and plan an initiative.
+changes. Use `factory-project-plan` next when you want to choose and plan an initiative.
 Saving context in Linear does not create issues or migrate existing plans.
 
 ## Plan project work
 
-Start a fresh session and use `$project-plan`, for example:
+Start a fresh session and use `$factory-project-plan`, for example:
 
 > Given the project context and our progress, what should we work on next?
 
@@ -219,14 +225,14 @@ Tasks have stable IDs,
 dependencies, acceptance and verification information, and form small coherent
 deliveries. The next delivery is detailed; later ones can stay coarse. A separate
 `log.md` is created only for meaningful historical decisions and evidence. See the
-[plan format](skills/project-plan/references/plan-format.md).
+[plan format](skills/factory-project-plan/references/plan-format.md).
 
 The local plan is the source of truth for its state. The reader generates a listing
 from headers and opens only a selected plan, excluding logs. From this checkout:
 
 ```sh
-python3 skills/project-plan/scripts/read_plan.py --repo /path/to/project list
-python3 skills/project-plan/scripts/read_plan.py --repo /path/to/project show initiative-id
+python3 skills/factory-project-plan/scripts/read_plan.py --repo /path/to/project list
+python3 skills/factory-project-plan/scripts/read_plan.py --repo /path/to/project show initiative-id
 ```
 
 The reader uses only Python's standard library and Git, and writes nothing.
@@ -243,18 +249,18 @@ Each issue owns its tasks, acceptance criteria, dependencies, and progress. The
 document does not duplicate issue states or checklists. Tasks remain small enough
 for human review; unchosen ideas do not generate tickets. A speculative draft is
 a document unless draft issues are explicitly requested. See
-[Linear plans](skills/project-plan/references/linear-plans.md).
+[Linear plans](skills/factory-project-plan/references/linear-plans.md).
 
 Existing plans and issues are revised in place. Saving is verified by reading back
 both the document and its linked issues; partial failures are reported without
 blindly recreating artifacts. No local files, assignments, or agent execution are
-created by planning. `project-implement` reads local plans or Linear delivery
+created by planning. `factory-project-implement` reads local plans or Linear delivery
 issues when implementation is requested separately.
 
 ## Implement a planned delivery
 
 In a fresh implementation session, identify the local plan and delivery or the
-Linear issue. The `project-implement` skill handles requests such as:
+Linear issue. The `factory-project-implement` skill handles requests such as:
 
 > Implement D1 from the selected plan in guided mode. Explain and apply one block,
 > then let me review it before continuing.
@@ -269,13 +275,24 @@ Workers cannot implement later blocks while you review. Autonomous mode complete
 the agreed delivery and resolves routine technical choices, asking only when
 consequential product or design decisions remain open. It still stops before the
 next delivery. If no mode or preference is established, the skill asks once.
-You can change modes during the delivery.
+You can change modes during the delivery. The implementation entrypoint keeps
+scope and context rules visible, then loads only the selected mode. Delegation
+instructions are read when delegating; handoff/review instructions when the delivery
+is complete; publication procedures when Git closure is authorized. Linear source
+reading is separate from issue publication, so starting work does not load the
+commenting and status-update procedure.
 
 The coordinator reads the saved plan, checks current code and prerequisites, and
 uses native subagents for substantial bounded tasks. Writers stay within the
 current guided block or autonomous delivery and use separate write areas; the
 coordinator integrates and verifies the result. Significant scope or design challenges return to the
 user/planner before the affected work continues.
+
+[factory-project-delivery](skills/factory-project-delivery/SKILL.md) owns reading existing context,
+plans and execution records and saving checkpoints. Implementation owns code,
+collaboration mode and verification; it composes this skill without depending on
+a storage provider. Workers read authoritative sources directly. `factory-project-context`
+continues to own source lookup/setup, and `factory-project-plan` owns plan creation/revision.
 
 For local plans, Next delivery records the mode and a concise resume note. For
 Linear, provisional progress stays in the conversation until the user validates
@@ -289,7 +306,7 @@ remain outside this workflow.
 
 The plan document keeps the design. No local mirror or duplicate tracker is
 created; a fresh session reconciles the last published issue checkpoint with the
-actual working tree. See [Linear implementation](skills/project-implement/references/linear-implementation.md).
+actual working tree. See [Linear delivery](skills/factory-project-delivery/references/linear-delivery.md).
 The coordinator handles corrections before moving on and records acceptance only
 from the user. It does not start or prepare implementation of later deliveries
 while waiting. Wider autonomous work must be explicitly requested. Validation
@@ -302,7 +319,7 @@ the role contract below. It does not automatically launch a planner or other ses
 ## Coordinate independent workers
 
 Ask the main session to coordinate selected issues with independent workers.
-`project-coordinate` checks dependencies, accepted prerequisite code, file ownership,
+`factory-project-coordinate` checks dependencies, accepted prerequisite code, file ownership,
 collaboration modes, and the intended integration branch before launching. It
 keeps the main model you selected. Parallel execution still returns small deliveries
 for sequential human review; dependent or explicitly deferred work is not started
@@ -351,12 +368,12 @@ updates. The coordinator retains shared context/plan document ownership;
 PRs and merges remain separately authorized. Worktrees isolate files,
 not design decisions: shared changes and integration still need coordination.
 Session/worktree references stay in the conversation, outside Git and Linear.
-See the [coordination skill](skills/project-coordinate/SKILL.md) and
-[launch and resume adapter](skills/project-coordinate/references/codex-herdr.md).
+See the [coordination skill](skills/factory-project-coordinate/SKILL.md) and
+[launch and resume adapter](skills/factory-project-coordinate/references/codex-herdr.md).
 
 ## Review a delivery before opening a PR
 
-At the end of a planned delivery, the implementer invokes `project-review` directly
+At the end of a planned delivery, the implementer invokes `factory-project-review` directly
 with a fresh native reviewer, the agreed plan/constraints and the whole diff against
 the pinned integration base. It includes intended uncommitted files when needed;
 no PR, extra implementation branch or commit is required to request an opinion.
@@ -373,7 +390,7 @@ The orchestrator receives a compact final result, not every exchange.
 The reviewer writes neither code nor Linear/GitHub comments. The implementer includes
 its review outcome in the usual issue update after human validation, authorized
 commit/review/push. Review is distinct from your acceptance, publication and merge;
-PR creation remains a separate request. `git-post-commit` keeps its narrower role
+PR creation remains a separate request. `factory-git-post-commit` keeps its narrower role
 of checking and fine-tuning the newly created commits.
 
 ## Commit changes
@@ -389,7 +406,7 @@ Review-only requests do not stage or commit. A commit request includes pushing t
 reviewed result by default; request local-only work to skip push. Rewriting history
 still requires an explicit request.
 
-After committing, `git-commit` runs `git-post-commit` once on the commits it created,
+After committing, `factory-git-commit` runs `factory-git-post-commit` once on the commits it created,
 unless asked to skip it. The coordinator reviews simple changes directly and uses
 a fresh read-only subagent for substantial or risky changes. Concrete defects or
 omissions can produce one corrective commit; a clean review produces none.
@@ -404,7 +421,7 @@ edits, commits, or push. Opening or updating a PR remains a separate request.
 
 ## Publish a pull request
 
-Ask to open or update a PR, or invoke `$git-pr`. It reviews the full committed
+Ask to open or update a PR, or invoke `$factory-git-pr`. It reviews the full committed
 change against the intended base, pushes the working branch, and creates or updates
 the matching GitHub PR. Titles use Conventional Commits; descriptions follow the
 project's language and template and explain the outcome and actual verification.
