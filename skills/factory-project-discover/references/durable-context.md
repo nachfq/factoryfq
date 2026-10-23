@@ -7,6 +7,9 @@ around durable guidance: a brief orientation, working conventions, maintainer
 criteria, repository responsibilities, and authoritative sources. Retain only
 cross-delivery decisions or open questions that change future work. Feature-specific
 contracts and debates belong in their plan and delivery issue, not here.
+Detailed explanations and investigative reasoning belong in [research notes](research-notes.md).
+For each relevant topic, keep only its project implication and a descriptive link
+here. This navigation belongs in context; do not add a second manual index.
 Record an agreed documentation and work-tracking language among the working
 conventions so later plans, issues, and repository docs can reuse it. Do not treat
 the language used with the agent as the project's language by default.
@@ -22,6 +25,8 @@ Select what to persist, rather than summarizing everything inspected:
 - Keep only enough technical orientation to navigate. Link to authoritative docs
   for APIs, versions, component inventories, and development commands. Retain a
   non-obvious technical constraint when it materially changes future decisions.
+  Move reusable learning, examples, comparisons, and evidence to a topic note;
+  do not expand this orientation into a tutorial or duplicate the note's summary.
 - Keep provisional execution details in the conversation and published evidence
   in the delivery issue (or local Tasks/checkpoint). Branch/HEAD, synchronization,
   checks and review status are not project context. Link to a blocker if its

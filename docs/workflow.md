@@ -37,6 +37,9 @@ or in the associated Linear project. The selected location is authoritative;
 there is no automatic mirror. Local plans keep design, tasks and the current
 checkpoint together. In Linear, the plan document holds design and delivery issues
 hold task progress. Storage choice does not change human review boundaries.
+Discovery preserves substantive learning during the conversation: short orientation
+and links in context, detailed findings in maintained topic research notes. Plans
+reuse those notes; agents read relevant links rather than the entire knowledge base.
 
 Discussion may end with more research, a decision to wait, or no new plan.
 Planning does not authorize implementation, and completing one delivery does not

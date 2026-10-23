@@ -47,6 +47,10 @@ format and must not create delivery issues for an unchosen direction.
 
 Research a named uncertainty when needed. Delegate bounded read-only investigations
 when they save context or allow useful parallel work; keep user dialogue here.
+Reuse relevant research linked from project context. Preserve new substantive
+findings using [research notes](../factory-project-discover/references/research-notes.md)
+when the storage destination is agreed; do not inflate context or invent a plan
+just to retain an investigation.
 If evidence is insufficient to plan implementation, a scoped investigation with a
 clear question and expected evidence can itself be the next delivery. Do not
 invent implementation tasks before that uncertainty is resolved.
