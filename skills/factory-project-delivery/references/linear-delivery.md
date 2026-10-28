@@ -22,14 +22,19 @@ Read the issue with relations (`get_issue(includeRelations=true)`; if selecting
 fields explicitly, include `relations`). Read prerequisite issues only as needed
 to establish readiness and prior review. Check their evidence against the actual
 checkout: a completed dependency in Linear does not place its code on this branch.
-Resolve missing prerequisite code or pending human acceptance before dependent
-implementation; do not clear relations or mark dependencies done to proceed.
+Resolve missing prerequisite code and honor required human checkpoints. An explicit
+autonomous milestone can defer human acceptance while using verified, reviewed
+prerequisites. Do not clear relations or mark dependencies accepted/done just to proceed.
 
 Reuse a clear user-selected delivery. For a request to continue, inspect its
 current checkpoint before selecting later work. Resolve ambiguous selection,
 missing acceptance criteria, or conflicting decisions before editing. Status,
 assignment, and a ready plan are not execution authorization. Do not create a
 replacement plan or issue when an existing artifact is missing or inaccessible.
+If delivery issues were never created for an agreed draft, return that gap to the
+main session's [execution handoff](../../factory-project-plan/references/execution-handoff.md)
+before implementation. Creating planned issues belongs to planning, independently
+of the publication boundary for execution updates below.
 If Linear is unavailable, report what cannot be read or saved; continue only
 authorized work that does not depend on missing information, without a local copy.
 

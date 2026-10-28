@@ -60,8 +60,7 @@ separate acceptance, not merely because there are two folders.
 Use native issue relations for real inter-delivery dependencies (`blockedBy` /
 `blocks`); do not maintain another dependency-status table in the document.
 Preserve unrelated relations and check for cycles. A technical dependency does
-not authorize its implementation, and a dependency being done does not replace
-the user's next-delivery checkpoint.
+not authorize its implementation or replace the user's agreed review boundary.
 
 Read `list_issue_statuses(team=...)` and use actual team status IDs. New speculative
 or unresolved deliveries use a backlog status; use an unstarted status for an
@@ -81,6 +80,10 @@ issues, without confirmation for every tool call. An open-ended next-step discus
 does not yet authorize a task backlog. A full speculative draft creates only the
 document unless draft issues were also requested. Do not alter sharing, project
 membership, or GitHub synchronization as part of planning.
+
+An explicit request to execute an agreed plan also authorizes preparing its missing
+delivery issues through [execution handoff](execution-handoff.md). Create and verify
+them before implementation; no commit or push is required to record planned work.
 
 Before creation, check for an existing matching plan and deliveries. Reuse their
 IDs; renaming an outcome does not create new work. If intent is to restart an old

@@ -11,8 +11,10 @@ including when ignored by Git; reuse it if already loaded and verify relevant fa
 
 Act as the planner in this conversation. A starting point can be an idea, a problem,
 or simply "what should we do next?" Planning authorizes plan artifacts, not code
-changes, commits, or implementation. Keep implementation for a separate session;
-this skill does not create or coordinate an implementer agent.
+changes, commits, or implementation. A later explicit execution request can change
+the current session's role: read [execution handoff](references/execution-handoff.md)
+to prepare the agreed deliveries, then use the appropriate implementation or
+coordination skill. The user need not open another session or name those skills.
 
 ## Resolve the current source
 

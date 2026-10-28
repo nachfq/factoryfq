@@ -1,6 +1,6 @@
 ---
 name: factory-project-implement
-description: Implement or revise one planned delivery in guided or autonomous mode, returning the result for human review.
+description: Implement or revise planned work in guided or autonomous mode, defaulting to one reviewable delivery. Use for direct implementation; route requests for independent interactive workers to factory-project-coordinate.
 ---
 
 # Implement one reviewable delivery
@@ -14,6 +14,10 @@ instead of relying on the planner's conversation. By default, execute one delive
 and stop for user review. Remaining tasks, worker completion, passing checks, or
 an open PR do not authorize the next delivery. Honor an explicit request for wider
 autonomous execution; do not infer it from a roadmap or a plan marked ready.
+In the main session, route requests to launch independent/full interactive agents
+or separate worker worktrees to [factory-project-coordinate](../factory-project-coordinate/SKILL.md) instead of
+the native subagent delegation reference. Report launch blockers before substituting
+another mechanism.
 
 When launched as an independent worker, first read the assigned
 [implementer role](../factory-project-coordinate/references/implementer.md). Its ownership
@@ -25,6 +29,9 @@ instructions already loaded when still applicable.
 
 ## Select the authorized delivery
 
+In the main session, prepare draft plans or missing delivery records through the
+planner's [execution handoff](../factory-project-plan/references/execution-handoff.md)
+before editing. Assigned workers report missing records to their coordinator.
 Use [factory-project-delivery](../factory-project-delivery/SKILL.md) to load the selected delivery
 from its established source, including the actual applicable project context.
 Reuse relevant contents already read; an assignment summary or link alone is not
@@ -39,9 +46,11 @@ is unclear, resolve that before editing. Reuse an already clear request without
 asking for approval again. If the plan is missing essential scope or decisions,
 return those gaps for planning rather than inventing the implementation contract.
 
-Check any pending human review first. An implementation marked done is not an
-accepted delivery. Apply requested corrections to that delivery before starting
-dependent work. A positive review alone does not authorize another delivery.
+Honor pending human review holds and requested corrections before dependent work.
+With an explicitly autonomous milestone, verified, independently reviewed
+prerequisites may enable the next authorized delivery without an intermediate
+human checkpoint. An implementation marked done is not human acceptance, and
+a positive review alone does not authorize another delivery.
 Briefly state the selected outcome, task IDs, scope boundaries, and verification.
 Use the [delivery agreement](references/delivery-contract.md) to resolve artifact
 and publication destinations and reuse scoped user authorization. An independent
@@ -106,10 +115,11 @@ in-scope fixes; report failed, skipped, or unavailable checks honestly.
 Use `factory-project-delivery` to maintain the current checkpoint under its source's write
 rules, including provisional notes when persistence must wait.
 
-In either mode, once implementation and checks are complete, present the delivery
-as awaiting user review. Do not advance to later work or claim acceptance before
-user review. Report actual blockers and unfinished checks instead of claiming a
-review-ready result.
+After implementation and checks, keep the delivery awaiting human acceptance.
+Default to returning it for user review before later work. Within an explicitly
+autonomous milestone, complete required review and prerequisite checks, then
+continue through the remaining authorized scope; retain bounded delivery summaries
+for the final human review. Report actual blockers and unfinished checks accurately.
 
 ## Continue at the appropriate boundary
 

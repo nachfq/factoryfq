@@ -20,9 +20,10 @@ flowchart TD
     Context --> Discover["factory-project-discover, when useful<br/>Explore and discuss goals and constraints"]
     Context -->|"Context already sufficient"| Plan
     Discover --> Plan["factory-project-plan<br/>Compare directions, then build the chosen plan"]
-    Plan --> Scope["User authorizes one bounded delivery<br/>Choose guided or autonomous mode"]
-    Scope --> Direct["factory-project-implement<br/>Work directly with the user"]
-    Scope -->|"Independent workers requested"| Coordinate["factory-project-coordinate<br/>Check dependencies and assign worktrees"]
+    Plan --> Scope["User authorizes a delivery or autonomous milestone<br/>Choose mode and human review boundary"]
+    Scope --> Prepare["factory-project-plan: prepare execution<br/>Verify tasks; create missing agreed Linear issues"]
+    Prepare --> Direct["factory-project-implement<br/>Work directly with the user"]
+    Prepare -->|"Independent workers requested"| Coordinate["factory-project-coordinate<br/>Check dependencies and assign worktrees"]
     Coordinate --> Workers["factory-project-implement per worker<br/>Parallel only where work is independent"]
     Direct --> Review["factory-project-review<br/>Whole delivery; no PR required"]
     Workers --> Review
@@ -42,9 +43,15 @@ and links in context, detailed findings in maintained topic research notes. Plan
 reuse those notes; agents read relevant links rather than the entire knowledge base.
 
 Discussion may end with more research, a decision to wait, or no new plan.
-Planning does not authorize implementation, and completing one delivery does not
-authorize starting the next. Parallel workers still return bounded results for
-sequential human review and integration.
+Planning does not authorize implementation. A subsequent execution request can
+transition the same conversation into implementation or coordination after
+[preparing the agreed deliveries](../skills/factory-project-plan/references/execution-handoff.md).
+Creating planned Linear issues is distinct from recording published progress.
+Default to one delivery and sequential human review. An explicitly autonomous
+milestone permits continuing after required review and prerequisite verification,
+with ordered delivery summaries and human acceptance pending at the agreed boundary.
+Independent worktrees need a committed base and actual interactive sessions;
+launch blockers do not authorize silent substitution with native subagents.
 
 ## Inside an independent implementation
 

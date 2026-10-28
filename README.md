@@ -30,9 +30,10 @@ skills from other sources. Invoke the new names explicitly (for example,
 - `skills/factory-project-delivery/SKILL.md`: read existing delivery sources and record
   progress through the selected storage provider.
 - `skills/factory-project-implement/SKILL.md`: guided blocks or autonomous implementation
-  within one delivery, with verification and human review before further work.
+  within one delivery by default, or an explicitly autonomous milestone, with
+  verification and human review at the agreed boundary.
 - `skills/factory-project-coordinate/SKILL.md`: independent Codex workers with separate
-  worktrees, bidirectional questions, and sequential review through a main session.
+  worktrees, bidirectional questions, and review at the agreed boundary through a main session.
 - `skills/factory-project-review/SKILL.md`: independent delivery review before handoff,
   without requiring a PR or committing unfinished work.
 - `config.example.json`: portable example for each machine's local preferences.
@@ -216,7 +217,8 @@ direction with you. It can also start from a concrete idea or revise an existing
 plan. It waits for a direction to be chosen before detailing implementation tasks,
 unless you explicitly request a speculative plan. Research is available when
 needed, without a mandatory discovery phase.
-It remains in planning and leaves implementation for a separate session.
+Planning stops at its handoff. A later explicit execution request can transition
+the same conversation into implementation or coordination; a new session is optional.
 
 The planner honors the requested destination, reuses the context source for new
 plans, and preserves an existing plan's destination during revision. It resolves
@@ -261,6 +263,10 @@ both the document and its linked issues; partial failures are reported without
 blindly recreating artifacts. No local files, assignments, or agent execution are
 created by planning. `factory-project-implement` reads local plans or Linear delivery
 issues when implementation is requested separately.
+If execution is requested while the plan is still a document-only draft, the main
+session first prepares and verifies the agreed delivery issues and their links.
+Issue creation records planned work and does not wait for commit/push. Execution
+progress retains the publication timing described below.
 
 ## Implement a planned delivery
 
@@ -278,8 +284,11 @@ Guided mode explains and applies one meaningful block, then waits for your
 feedback and go-ahead. Ask to see the proposed code before writing if preferred.
 Workers cannot implement later blocks while you review. Autonomous mode completes
 the agreed delivery and resolves routine technical choices, asking only when
-consequential product or design decisions remain open. It still stops before the
-next delivery. If no mode or preference is established, the skill asks once.
+consequential product or design decisions remain open. It stops before the next
+delivery by default. An explicitly autonomous milestone permits continuing through
+its authorized deliveries after required review and prerequisite checks, with human
+acceptance pending at the agreed boundary. If no mode or preference is established,
+the skill asks once.
 You can change modes during the delivery. The implementation entrypoint keeps
 scope and context rules visible, then loads only the selected mode. Delegation
 instructions are read when delegating; handoff/review instructions when the delivery
@@ -313,22 +322,32 @@ The plan document keeps the design. No local mirror or duplicate tracker is
 created; a fresh session reconciles the last published issue checkpoint with the
 actual working tree. See [Linear delivery](skills/factory-project-delivery/references/linear-delivery.md).
 The coordinator handles corrections before moving on and records acceptance only
-from the user. It does not start or prepare implementation of later deliveries
-while waiting. Wider autonomous work must be explicitly requested. Validation
+from the user. It honors required human checkpoints and does not start later work
+merely because checks pass. Wider autonomous work must be explicitly requested. Validation
 alone does not request a commit. Commit requests include push by default; PRs,
 releases, and merges require separate authorization.
 
 This skill can run in a main implementation session or an independent worker with
-the role contract below. It does not automatically launch a planner or other sessions.
+the role contract below. Requests for independent interactive agents/worktrees route
+to `factory-project-coordinate`, rather than native subagent delegation.
 
 ## Coordinate independent workers
 
 Ask the main session to coordinate selected issues with independent workers.
-`factory-project-coordinate` checks dependencies, accepted prerequisite code, file ownership,
+`factory-project-coordinate` checks delivery records, prerequisites, file ownership,
 collaboration modes, and the intended integration branch before launching. It
 keeps the main model you selected. Parallel execution still returns small deliveries
 for sequential human review; dependent or explicitly deferred work is not started
-without the corresponding agreement.
+without the corresponding agreement. For example:
+
+> Complete the agreed milestone autonomously with independent interactive workers,
+> parallelizing where useful. Ask me about consequential decisions.
+
+The current session prepares the agreed delivery records, launches actual interactive
+workers and advances within the authorized scope. Worktree creation needs a committed
+base: an empty repository or uncommitted prerequisites require resolving that Git
+step first. Missing launch prerequisites are reported, not silently bypassed with
+native subagents. Milestone execution alone grants no Git publication permission.
 
 Independent workers use the `implementer` role with Sol 6.1 high by default.
 Their native read-only `reviewer` uses Astra high. Override either through

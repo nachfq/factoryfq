@@ -93,8 +93,9 @@ State decisions that must be resolved first. Include enough relevant source
 locations and constraints for a fresh agent to pick it up. Keep this a planning
 handoff, not an instruction to execute without the user's request.
 
-During implementation, record the agreed collaboration mode (`guided` or
-`autonomous within the delivery`) here. For guided work, keep a short current
+During implementation, record the agreed collaboration mode, authorized deliveries
+and human review boundary here: guided, autonomous within a delivery, or an
+explicitly autonomous milestone. For guided work, keep a short current
 resume note: the applied/reviewed block, outstanding checks or corrections, and
 the proposed next block. Update it in place; do not create a second task list or
 a per-block history. A partially implemented task stays `active`.

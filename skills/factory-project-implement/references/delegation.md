@@ -1,5 +1,9 @@
 # Delegate within an implementation session
 
+This is native subagent delegation in a shared checkout. For user-requested
+independent interactive agents/worktrees, use `factory-project-coordinate` instead;
+an unavailable launcher does not authorize silently substituting this mechanism.
+
 For native subagent delegation within this session, the coordinator owns
 integration, Git operations, plan updates, and user dialogue.
 Handle small tasks directly. For substantial bounded tasks, use fresh native
@@ -22,6 +26,8 @@ In guided mode, scope writers to the current block; delegate bounded read-only
 investigation when useful without deciding future blocks for the user. In autonomous
 mode, parallelize independent tasks within the active delivery, with disjoint write
 ownership. Serialize dependencies and shared-file changes; coordinate broad
-formatters, generators, and dependency updates. Do not delegate tasks from later
-deliveries or start their preparatory implementation while awaiting human review.
+formatters, generators, and dependency updates. Stay within the authorized scope
+and review boundary: do not start later deliveries while awaiting a required human
+checkpoint. An explicitly autonomous milestone permits scheduling its independent
+work and continuing through verified dependencies, not ignoring user holds.
 Inspect each returned diff before integrating or using it as a prerequisite.

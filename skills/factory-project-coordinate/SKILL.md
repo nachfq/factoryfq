@@ -1,6 +1,6 @@
 ---
 name: factory-project-coordinate
-description: Coordinate independent interactive Codex workers with separate branches and worktrees, including parallel implementation, questions, and sequential human review. Use when asked to launch or coordinate workers, not for ordinary single-session implementation.
+description: Coordinate independent interactive Codex workers with separate branches and worktrees for agreed deliveries or an authorized milestone. Use when asked to launch or coordinate independent workers, not for ordinary native subagent delegation.
 ---
 
 # Coordinate independent workers
@@ -13,6 +13,10 @@ Act as coordinator in the user's current session, keeping its selected model.
 Workers are independent interactive Codex sessions, not native subagents. They
 remain accessible to the user. Start only the work the user authorized; a request
 to assess parallelism authorizes inspection, not worker execution.
+Before dispatch, prepare missing delivery records through the planner's
+[execution handoff](../factory-project-plan/references/execution-handoff.md).
+Honor the user's scope and review boundary, including an explicitly autonomous
+milestone; neither worker completion nor passing checks grants more scope.
 
 Read only the workflow needed for the current action:
 
