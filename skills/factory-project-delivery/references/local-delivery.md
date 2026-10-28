@@ -21,9 +21,12 @@ Keep mode and one current resume note in Next delivery: applied/reviewed block,
 outstanding checks or corrections, and proposed next block. Replace superseded
 notes instead of logging each exchange. Partially implemented tasks remain active.
 
-After implementation and required checks, mark verified tasks done but keep Next
-delivery on the delivery awaiting human review and the initiative active. Record
-acceptance only when the user gives it; do not advance merely because checks pass.
+After implementation and required checks, mark verified tasks done. By default,
+keep Next delivery on the delivery awaiting human review and the initiative active. Record
+acceptance only when the user gives it. For an explicitly autonomous milestone,
+Next delivery may advance within the authorized scope after required review and
+prerequisite verification; retain outstanding human review by delivery in the
+existing checkpoint. Keep the initiative active until required acceptance occurs.
 Keep design in the plan and execution evidence alongside its tasks/checkpoint.
 Preserve valid completion evidence when another part changes; consult or update
 optional history only for consequential decisions, not transcripts.

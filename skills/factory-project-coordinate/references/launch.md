@@ -12,6 +12,9 @@ Use [factory-project-plan](../../factory-project-plan/SKILL.md) for consequentia
 its context-exception and verification decisions; do not defer unresolved planning
 conflicts to implementers or reviewers. This is not a mandatory new planning phase.
 Explicit requests to implement named deliveries are sufficient scope.
+If delivery records are missing or still speculative, complete the planner's
+[execution handoff](../../factory-project-plan/references/execution-handoff.md)
+before launch; a document-only draft is not a substitute for agreed Linear issues.
 
 Check whether the work is actually independent: agreed interfaces, prerequisite
 code, testability, and file ownership. Do not manufacture parallelism or treat
@@ -26,8 +29,12 @@ stop after each block for the user; autonomous workers complete only their assig
 delivery. Read-only review by the coordinator is not the user's acceptance.
 
 Resolve the [delivery destinations and closure agreement](../../factory-project-implement/references/delivery-contract.md)
-before launch. Choose a verified starting commit containing accepted prerequisites
-for each worker, using a shared base where needed. Distinguish work branches,
+before launch. Choose a verified starting commit containing prerequisites that
+satisfy the agreed review boundary, using a shared base where needed. A repository
+without an initial commit cannot supply that base. Report missing base/commit
+authorization and resolve it through the Git workflow; never create commits
+implicitly or substitute native subagents to bypass the worktree prerequisite.
+Distinguish work branches,
 combined integration and intended PR targets, including upstream versus fork.
 Give shared docs/examples an explicit destination. Do not include uncommitted edits
 implicitly or reset the main checkout. Check CI triggers against the actual PR bases.

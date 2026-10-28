@@ -28,5 +28,6 @@ IDs and the agreed change in outcome, constraints and verification, so the
 coordinator can update existing workers without restarting unaffected work. The plan
 must be understandable to the user and usable by a fresh implementation session.
 A ready plan or agreed scope is not permission to execute every delivery. Stop at the planning
-handoff; do not begin implementing. `factory-project-implement` can consume local plans
-or Linear delivery issues when the user requests execution in a fresh session.
+handoff; do not begin implementing without an execution request. When that request
+arrives here or in a fresh session, follow [execution handoff](execution-handoff.md)
+before implementation or worker coordination.

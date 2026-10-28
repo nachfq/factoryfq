@@ -27,8 +27,12 @@ try the change. Present one integrated review surface, not a stream of worker re
 the delivery must have returned or been stopped before this review handoff.
 
 Report verification, review, acceptance and publication as separate facts, with the
-remaining action. Wait for human review; acceptance is recorded only when the
-user gives it. For corrections, reopen affected tasks, fix and verify in the agreed
-mode, and present the same delivery again. Propose later work without starting it.
+remaining action. At the agreed boundary, wait for human review; acceptance is
+recorded only when the user gives it. Within an explicitly autonomous milestone,
+retain this delivery's summary and reviewed evidence, then continue through
+authorized work once its prerequisites are verified. Present the deliveries in
+order at the final handoff, without claiming they are human-accepted. For requested
+corrections, reopen affected tasks, fix and verify in the agreed mode, and present
+the same delivery again. Otherwise propose later work without starting it.
 When commit/push is requested or an applicable closure agreement's trigger is met,
 read [publication](publication.md). Do not load Git procedures just to hand off code.

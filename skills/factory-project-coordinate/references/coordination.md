@@ -40,9 +40,14 @@ replacement blindly.
 ## Review and publish sequentially
 
 Inspect each result and its diff/check evidence in that worker's worktree. Give
-the user one bounded review at a time, even if other authorized independent work
-finishes in parallel. Do not start later dependent deliveries merely because a
-worker is available.
+the user one bounded review at a time by default. For an explicitly autonomous
+milestone, continue through its authorized deliveries after prerequisite checks,
+required independent review and verification against the actual integration base;
+present ordered delivery summaries at the agreed human review boundary. Keep human
+acceptance pending. An explicit hold or requested correction still pauses affected
+work. Worker availability alone never authorizes another delivery. If moving code
+between worktrees requires commits or integration Git actions, obtain or reuse
+that permission instead of bypassing it or copying dirty prerequisites silently.
 
 Implementers reuse the user's applicable closure authorization or obtain it directly
 from the user, then run `factory-git-commit` in their own worktrees. Do not become an
