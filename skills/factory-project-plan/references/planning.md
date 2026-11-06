@@ -1,5 +1,9 @@
 # Build a reviewable plan
 
+Use after the relevant behavior is defined and the user requests technical planning.
+For unresolved definition, use [guided specification](guided-specification.md) first;
+choosing a direction or approving one spec block does not request a task backlog.
+
 Apply the relevant project context criteria to the proposed design, scope and
 verification, not just to the introduction. Before calling a plan ready, remove
 unsupported obligations and identify consequential departures from those criteria.
@@ -17,16 +21,16 @@ or separate suite; justify added infrastructure or overlapping coverage by the
 otherwise uncovered risk. Keep this rationale with the affected acceptance criteria,
 not in a new checklist or document.
 
-Once the user has chosen a direction, create or update one initiative in the
-selected destination, following its format above. Reuse a direction already explicit
+Once technical planning is requested for a chosen direction, create or update one
+initiative in the selected destination, following its format above. Reuse a direction already explicit
 in the request or prior decisions without asking again. An explicit request for a
 full speculative draft is also sufficient: label its assumptions and unselected
 direction clearly. Otherwise, keep the discussion open or close with the agreed
 wait condition rather than presenting implementation tasks for an unchosen option.
 Keep unresolved scope choices visible in a draft. Reuse an existing matching
 initiative rather than creating new artifacts for each session or revision. In
-Linear, an explicitly speculative draft stays a document until the user chooses
-the direction or specifically asks for draft issues.
+Linear, an explicitly speculative draft stays a document until delivery planning
+is requested for agreed work or draft issues are specifically requested.
 
 Before the task breakdown, explain the technical approach for the human reviewer:
 the relevant concepts and their relationships, how things work today, what will

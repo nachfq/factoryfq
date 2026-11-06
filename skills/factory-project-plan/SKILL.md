@@ -1,6 +1,6 @@
 ---
 name: factory-project-plan
-description: Help choose what to work on next and collaboratively build or revise a plan in local files or Linear documents and delivery issues. Use for planning small, reviewable deliveries or suggesting next steps from project context, not for implementation.
+description: Turn ideas, brainstorms or RFPs into agreed specifications through guided conversation, then build or revise technical plans and reviewable deliveries in local files or Linear. Use for definition, next-step selection and planning, not implementation.
 ---
 
 # Plan project work
@@ -57,9 +57,20 @@ If evidence is insufficient to plan implementation, a scoped investigation with 
 clear question and expected evidence can itself be the next delivery. Do not
 invent implementation tasks before that uncertainty is resolved.
 
+## Define behavior before planning implementation
+
+When behavior or scope still needs definition, read
+[guided specification](references/guided-specification.md). Default to one coherent
+topic at a time: explain, discuss examples, confirm and save agreed blocks, then
+return control. Adapt to the user's knowledge; do not draft a complete spec or
+task backlog merely because a direction was chosen. Reuse already explicit
+decisions and honor a requested full draft. Specification approval authorizes
+saving that agreement, not implementation or an unrequested task backlog.
+
 ## Develop, revise, and hand off
 
-After the user chooses a direction (or explicitly requests a speculative draft),
+When technical planning is requested and the relevant behavior is sufficiently
+defined (or the user explicitly requests a speculative technical draft),
 read [planning guidance](references/planning.md). Apply project context criteria
 to design, scope, and verification; explain the technical approach before the task
 breakdown. Justify the smallest sufficient validation, and agree a bounded delivery
@@ -78,3 +89,5 @@ changes and do not rewrite durable context to justify a plan.
 At the planning handoff, read the handoff portion of that reference, verify saved
 artifacts and their links, and explain the behavior, rationale, next delivery, and
 unresolved decisions. Planning ends there: readiness is not execution permission.
+For a definition-only pause, leave the agreed Specs and next open question; no
+technical plan or delivery issues are required to finish that conversation.

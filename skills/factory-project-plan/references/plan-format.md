@@ -6,11 +6,14 @@ use [Linear plans](linear-plans.md); do not mirror the local file structure ther
 Keep one initiative at `.agent-context/plans/<id>/plan.md`. Its optional `log.md`
 holds historical rationale. Do not create empty logs, task-per-file trees, a
 hand-maintained index, or duplicate JSON state. Follow the project's language for
-prose; retain the metadata keys and `Specs`, `Technical approach`, `Tasks`, and
-`Next delivery` headings.
+prose; retain the metadata keys and use `Specs`, `Technical approach`, `Tasks`, and
+`Next delivery` headings as those stages become relevant. A definition-only draft
+can start with `Specs` and `Next delivery` as its next definition topic; do not
+invent design, tasks or empty sections to complete the format.
 
-Use this format for a user-selected direction or an explicitly requested
-speculative plan. A comparison of possible directions does not need a task list;
+Use this format for incrementally agreed specification blocks, a user-selected
+planning direction or an explicitly requested speculative plan. A comparison of
+possible directions does not need a task list;
 marking a plan `draft` does not replace that conversation.
 
 ## Metadata
@@ -55,9 +58,12 @@ states when revising an existing plan; the planner does not start execution.
 
 State the intended outcome, scope and exclusions, relevant constraints, and
 requirements with stable IDs (`S1`, `S2`, ...). Give observable acceptance criteria
-and link to code or documentation as needed. Separate agreed decisions from
+with representative behavioral examples, and link to relevant source obligations,
+code or documentation as needed. Separate agreed decisions from
 assumptions and open questions. Keep the current truth here, so a new session
 does not have to reconstruct requirements from the log or previous conversation.
+Follow [guided specification](guided-specification.md) for incremental agreement
+and persistence. A saved spec block does not make the initiative ready for execution.
 
 ## Technical approach
 
@@ -92,6 +98,8 @@ or user-agreed, the expected review surface, and how its outcome will be verifie
 State decisions that must be resolved first. Include enough relevant source
 locations and constraints for a fresh agent to pick it up. Keep this a planning
 handoff, not an instruction to execute without the user's request.
+During definition, use this section for the current agreed scope, consequential
+open questions and next topic to discuss instead of manufacturing a delivery.
 
 During implementation, record the agreed collaboration mode, authorized deliveries
 and human review boundary here: guided, autonomous within a delivery, or an

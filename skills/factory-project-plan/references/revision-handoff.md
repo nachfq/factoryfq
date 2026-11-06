@@ -5,8 +5,8 @@ Discuss meaningful changes to goals or scope; findings do not authorize expansio
 For a consequential correction, explain what stays, what is removed or simplified,
 why, and any remaining risk before applying the revised agreement. Respect a
 requested proposal-first checkpoint; otherwise reuse already explicit authorization.
-Update affected Specs, Technical approach, and Tasks together, preserve valid work
-and stable IDs, and record only consequential decision changes in the destination's
+Update affected Specs and any existing Technical approach and Tasks together.
+Preserve valid work and stable IDs, and record only consequential decision changes in the destination's
 history location. Keep design and open contracts in the plan; execution evidence
 belongs in Linear issues or local Tasks/Next delivery, not Specs/Technical approach.
 Do not rewrite project context to justify an implementation or an unsupported plan
@@ -17,7 +17,9 @@ from supplied or observed evidence; a suggested solution is not completed work.
 
 ## Verify and hand off
 
-Before handing off, read back the saved plan, check requirement/task references,
+For a definition-only pause, verify the agreed spec blocks and leave the next
+open topic; do not create design, tasks or issues to satisfy a planning handoff.
+For a technical planning handoff, read back the saved plan, check requirement/task references,
 dependencies, and verification. For local plans, run the reader to confirm it is
 discoverable; for Linear, verify document/issue links and saved issue fields.
 Walk the user through the proposed behavior, design rationale, and how the next

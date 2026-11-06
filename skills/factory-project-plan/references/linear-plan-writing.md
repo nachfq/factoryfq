@@ -11,8 +11,15 @@ Follow the project's language. Do not copy its context into the plan. Link earli
 plans as background or prerequisites without absorbing their scope or completion
 history. Association with a project does not add other repositories' features.
 
+During guided definition, save agreed blocks incrementally in this same document's
+Specs, with a brief next topic and separately labeled proposals/open questions.
+An initial definition-only document need not contain design, deliveries or issues.
+Use the existing `Plan: <outcome>` title convention; do not maintain a second spec
+document. Follow [guided specification](guided-specification.md) for agreement.
+
 - **Specs:** stable `S1`, `S2`, ... requirements, scope/exclusions, observable
-  acceptance criteria, constraints, and unresolved assumptions.
+  acceptance criteria with representative examples, constraints, and unresolved
+  assumptions. Link source obligations where they determine the agreed behavior.
 - **Technical approach:** explain domain concepts, their relationships, current
   versus proposed behavior, contracts, open design choices, and correspondence with
   existing core APIs where relevant, through a concrete example or flow. Keep method-specific
@@ -80,6 +87,11 @@ issues, without confirmation for every tool call. An open-ended next-step discus
 does not yet authorize a task backlog. A full speculative draft creates only the
 document unless draft issues were also requested. Do not alter sharing, project
 membership, or GitHub synchronization as part of planning.
+
+A definition-only request authorizes incremental document updates after agreement,
+not delivery issues. Approving a spec block does not request a task backlog, even
+when the overall direction is chosen. A requested full draft stays visibly proposed
+until approved; do not present its inferred decisions as user agreements.
 
 An explicit request to execute an agreed plan also authorizes preparing its missing
 delivery issues through [execution handoff](execution-handoff.md). Create and verify
