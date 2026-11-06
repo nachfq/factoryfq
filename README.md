@@ -217,6 +217,16 @@ direction with you. It can also start from a concrete idea or revise an existing
 plan. It waits for a direction to be chosen before detailing implementation tasks,
 unless you explicitly request a speculative plan. Research is available when
 needed, without a mandatory discovery phase.
+When behavior is still unclear, definition is guided by default: the agent shows
+a short map of open topics, explains one meaningful decision with examples, and
+confirms the proposed behavior before moving on. It saves agreed blocks in Specs
+without requiring a separate save request, preserving open questions and proposals
+as such. The conversation adapts to the user's familiarity, including product or
+sales users; technical design choices need not be made to describe a need.
+Definition can pause with a partial spec and no design or tasks. A requested full
+draft is supported, with assumptions labeled. Autonomous development preferences
+do not make definition autonomous. See
+[guided specification](skills/factory-project-plan/references/guided-specification.md).
 Planning stops at its handoff. A later explicit execution request can transition
 the same conversation into implementation or coordination; a new session is optional.
 
@@ -225,7 +235,8 @@ plans, and preserves an existing plan's destination during revision. It resolves
 competing sources before writing and never silently mirrors or migrates plans.
 
 For local storage, each initiative has `.agent-context/plans/<id>/plan.md` with a
-small JSON header and Markdown Specs, Technical approach, Tasks, and Next delivery sections. The
+small JSON header. Definition starts in Specs, with Next delivery as its resume
+point; Technical approach and Tasks are added when planning becomes relevant. The
 technical explanation connects domain concepts, current behavior, and the proposed
 change through a concrete example or flow so the user can assess the design.
 Tasks have stable IDs,
@@ -251,7 +262,9 @@ For Linear, use the same planning conversation, for example:
 > Help me choose the next milestone, then build its plan in Linear once we agree.
 
 After choosing a direction, the planner saves a `Plan: <outcome>` document in the
-associated project with Specs, Technical approach, and links to delivery issues.
+associated project, which may begin with only the incrementally agreed Specs.
+When technical and delivery planning is requested, it adds Technical approach and
+links to delivery issues. Approving a spec block does not request that backlog.
 Each issue owns its tasks, acceptance criteria, dependencies, and progress. The
 document does not duplicate issue states or checklists. Tasks remain small enough
 for human review; unchosen ideas do not generate tickets. A speculative draft is

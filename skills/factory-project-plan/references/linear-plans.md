@@ -21,7 +21,8 @@ and pagination. Plans created by this workflow use the title
 existing plans even if their titles differ. Titles find candidates; verify project
 membership and scope before deciding they match. Never select solely by recency.
 
-Read issues linked from that plan. If links are incomplete, use project-scoped
+Definition-only drafts intentionally have no delivery issues. Read issues when
+the selected work has deliveries; if their links are incomplete, use project-scoped
 `list_issues` with metadata first, then inspect candidate descriptions to verify
 the exact plan reference and delivery ID. Follow pagination before concluding
 an issue is missing. Fetch only relevant issues and their relations, not every
@@ -29,7 +30,8 @@ description or comment in the workspace. Read history only for a named question.
 
 ## When creating or changing a plan
 
-After the direction is selected, or an explicitly speculative draft is requested,
+When saving agreed definition blocks, planning a selected direction, or writing
+an explicitly requested speculative draft,
 read [Linear plan writing](linear-plan-writing.md) for document and issue structure,
 authorization boundaries, persistence, revisions, and saved-state verification.
 Do not load writing procedures merely to locate or read a plan.

@@ -19,7 +19,7 @@ flowchart TD
     Setup --> Context["factory-project-context<br/>Find context or set up storage when requested"]
     Context --> Discover["factory-project-discover, when useful<br/>Explore and discuss goals and constraints"]
     Context -->|"Context already sufficient"| Plan
-    Discover --> Plan["factory-project-plan<br/>Compare directions, then build the chosen plan"]
+    Discover --> Plan["factory-project-plan<br/>Agree behavior step by step; design and tasks when requested"]
     Plan --> Scope["User authorizes a delivery or autonomous milestone<br/>Choose mode and human review boundary"]
     Scope --> Prepare["factory-project-plan: prepare execution<br/>Verify tasks; create missing agreed Linear issues"]
     Prepare --> Direct["factory-project-implement<br/>Work directly with the user"]
@@ -43,6 +43,11 @@ and links in context, detailed findings in maintained topic research notes. Plan
 reuse those notes; agents read relevant links rather than the entire knowledge base.
 
 Discussion may end with more research, a decision to wait, or no new plan.
+Definition is guided by default: discuss one meaningful behavior block, confirm
+it and save the agreement in Specs before moving on. Adapt explanations to the
+user's familiarity. A partial spec can stand alone; a spec OK does not authorize
+a task backlog or implementation. Full drafts and autonomous execution are
+separate explicit choices. See [guided specification](../skills/factory-project-plan/references/guided-specification.md).
 Planning does not authorize implementation. A subsequent execution request can
 transition the same conversation into implementation or coordination after
 [preparing the agreed deliveries](../skills/factory-project-plan/references/execution-handoff.md).
